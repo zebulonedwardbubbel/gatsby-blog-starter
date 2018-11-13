@@ -1,9 +1,9 @@
 ---
-path: /blog/da-third-blog-post
-date: 2018-11-13T15:23:01.425Z
-title: I hope that this post will be posted with success
-author: Me
-tag: netlifyCMS gatsby
+path: "/blog/da-third-blog-post"
+date: "2018-11-13T15:23:01.425Z"
+title: "I hope that this post will be posted with success"
+author: "Me"
+tag: "netlifyCMS gatsby"
 ---
 # asdf YO! Gatsby coolship...
 
