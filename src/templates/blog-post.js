@@ -32,7 +32,7 @@ export const pageQuery = graphql`
                 path
                 title
                 author
-                tag
+                tags
             }
         }
     }
