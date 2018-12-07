@@ -1,6 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: `Title string from siteMetadata!!!`
+        title: `Title string from siteMetadata!!!`,
+        description: `Blog wowness!`
     },
     plugins: [
         {
