@@ -1,5 +1,4 @@
 const path = require('path');
-const _ = require('lodash');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -15,11 +14,54 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 };
 
+const createTagPages = (createPage, posts) => {
+    const allTagsIndexTemplate = path.resolve('src/templates/allTagsIndex.js')
+    const singleTagIndexTemplate = path.resolve('src/templates/singleTagIndex.js')
+
+    const postsByTag = {}
+    console.log(posts);
+
+    posts.forEach(({ node }) => {
+        if (node.frontmatter.tags) {
+            node.frontmatter.tags.forEach(tag => {
+                if (!postsByTag[tag]) {
+                    postsByTag[tag] = []
+                }
+
+                postsByTag[tag].push(node)
+            })
+        }
+    })
+
+    const tags = Object.keys(postsByTag)
+
+    createPage({
+        path: '/tags',
+        component: allTagsIndexTemplate,
+        context: {
+            tags: tags.sort()
+        }
+    })
+
+    tags.forEach(tagName => {
+        const posts = postsByTag[tagName]
+
+        createPage({
+            path: `/tags/${tagName}`,
+            component: singleTagIndexTemplate,
+            context: {
+                posts,
+                tagName
+            }
+        })
+    })
+
+}
+
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions;
 
     const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
-    const tagTemplate = path.resolve(`src/templates/tags.js`);
 
     return graphql(`
     {
@@ -31,6 +73,7 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             frontmatter {
               path
+              title
               tags
             }
           }
@@ -43,32 +86,19 @@ exports.createPages = ({ actions, graphql }) => {
         }
 
         const posts = result.data.allMarkdownRemark.edges;
+
+        createTagPages(createPage, posts);
+
         // Create post detail pages
-        posts.forEach(({ node }) => {
+        posts.forEach(({ node }, index) => {
+            const path = node.frontmatter.path;
             createPage({
-                path: node.frontmatter.path,
-                component: blogPostTemplate
-            });
-        });
-
-        // Tag pages:
-        let tags = [];
-        // Iterate through each post, putting all found tags into `tags`
-        _.each(posts, edge => {
-            if (_.get(edge, 'node.frontmatter.tags')) {
-                tags = tags.concat(edge.node.frontmatter.tags);
-            }
-        });
-        // Eliminate duplicate tags
-        tags = _.uniq(tags);
-
-        // Make tag pages
-        tags.forEach(tag => {
-            createPage({
-                path: `/tags/${_.kebabCase(tag)}/`,
-                component: tagTemplate,
+                path,
+                component: blogPostTemplate,
                 context: {
-                    tag
+                    pathSlug: path,
+                    next: index === 0 ? null : posts[index - 1].node,
+                    prev: index === (posts.length - 1) ? null : posts[index + 1].node
                 }
             });
         });

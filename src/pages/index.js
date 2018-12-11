@@ -29,6 +29,9 @@ export default ({data}) => {
                     </Link>
                 </div>
             ))}
+            <div>
+                <Link to='/tags'>Browse by Tag</Link>
+            </div>
         </Container>
     )
 }

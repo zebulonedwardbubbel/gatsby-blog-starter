@@ -1,9 +1,10 @@
 import React from "react";
 import Container from "../components/container";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import LinkList from "../components/nav";
 
-export default function Template({ data }) {
+export default function Template({ data, pageContext }) {
+    const {next, prev} = pageContext;
     const { markdownRemark } = data; // data.markdownRemark holds our post data
     const { frontmatter, html } = markdownRemark;
     return (
@@ -17,15 +18,30 @@ export default function Template({ data }) {
                 dangerouslySetInnerHTML={{ __html: html }}
             />
             <span>{frontmatter.author}</span>
-            <div>{frontmatter.tag}</div>
+            <div>{frontmatter.tags}</div>
+
+            <div style={{marginBottom: '1rem'}}>
+                { next &&
+                    <Link to={next.frontmatter.path}>
+                        Next: {`${next.frontmatter.title}`}
+                    </Link>
+                }
+            </div>
+            <div>
+                { prev &&
+                    <Link to={prev.frontmatter.path}>
+                        Prev: {`${prev.frontmatter.title}`}
+                    </Link>
+                }
+            </div>
         </div>
         </Container>
     );
 }
 
 export const pageQuery = graphql`
-    query($path: String!) {
-        markdownRemark(frontmatter: { path: { eq: $path } }) {
+    query($pathSlug: String!) {
+        markdownRemark(frontmatter: { path: { eq: $pathSlug } }) {
             html
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
