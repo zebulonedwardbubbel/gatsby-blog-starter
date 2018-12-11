@@ -19,7 +19,6 @@ const createTagPages = (createPage, posts) => {
     const singleTagIndexTemplate = path.resolve('src/templates/singleTagIndex.js')
 
     const postsByTag = {}
-    console.log(posts);
 
     posts.forEach(({ node }) => {
         if (node.frontmatter.tags) {
