@@ -2,6 +2,7 @@
 path: "/blog/da-third-blog-post"
 date: "2018-11-13"
 title: "I hope that this post will be posted with success"
+description: "Desc for post #3"
 author: "Me"
 tags: 'culture, music, gastronomy'
 ---

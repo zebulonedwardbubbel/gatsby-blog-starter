@@ -1,6 +1,7 @@
 ---
 path: "/blog/blog-post-no1"
 title: "Our very first blog post"
+description: "Desc for post #1"
 date: "2018-11-03"
 author: "Zebulon Edward Bubbel"
 tags: 'film, culture, science'

@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../components/container";
 import { Link, graphql } from "gatsby";
 import LinkList from "../components/nav";
+import { Helmet } from "react-helmet"
 
 export default function Template({ data, pageContext }) {
     const {next, prev} = pageContext;
@@ -9,6 +10,10 @@ export default function Template({ data, pageContext }) {
     const { frontmatter, html } = markdownRemark;
     return (
         <Container>
+            <Helmet>
+                <title>{frontmatter.title}</title>
+                <meta name="description" content={frontmatter.title}></meta>
+            </Helmet>
         <LinkList />
         <div className="blog-post-container">
             <h2>{frontmatter.title}</h2>

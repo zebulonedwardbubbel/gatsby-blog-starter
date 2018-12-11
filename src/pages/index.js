@@ -3,10 +3,15 @@ import {Link, graphql} from 'gatsby';
 import Container from '../components/container'
 import LinkList from '../components/nav';
 import Header from '../components/header';
+import { Helmet } from 'react-helmet';
 
 export default ({data}) => {
     return (
         <Container>
+            <Helmet>
+                <title>Gatsby blog with Netlify CMS integration</title>
+                <meta name="description" content="description for the index page"></meta>
+            </Helmet>
             <LinkList />
             <Header />
             <img src="https://source.unsplash.com/random/400x200" alt="" />

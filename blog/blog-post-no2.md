@@ -1,6 +1,7 @@
 ---
 path: "/blog/blog-post-no2"
 title: "Secont post of our blog"
+description: "Desc for post #2"
 date: "2018-11-04"
 author: "Zebulon Edward Bubbel"
 tags: 'development, science'
