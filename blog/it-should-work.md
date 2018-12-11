@@ -3,7 +3,7 @@ path: /blog/fifth-post
 date: 2018-12-11T13:33:48.986Z
 title: It should work!
 author: kertész
-tag: '["horror"]'
+tag: '"horror", "music"'
 ---
 Modern web tech without the headache
 
