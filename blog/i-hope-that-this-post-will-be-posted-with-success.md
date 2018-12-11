@@ -3,7 +3,7 @@ path: "/blog/da-third-blog-post"
 date: "2018-11-13"
 title: "I hope that this post will be posted with success"
 author: "Me"
-tags: ["culture", "music", "gastronomy"]
+tags: 'culture, music, gastronomy'
 ---
 # asdf YO! Gatsby coolship...
 

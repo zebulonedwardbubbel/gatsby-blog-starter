@@ -8,9 +8,7 @@ export default ({data}) => {
     return (
         <Container>
             <LinkList />
-            {/* <Header headerText='Hello World' /> */}
             <Header />
-            <p>What a world.</p>
             <img src="https://source.unsplash.com/random/400x200" alt="" />
             <h3>{data.allMarkdownRemark.totalCount} Posts</h3>
             {data.allMarkdownRemark.edges.map(({ node }) => (

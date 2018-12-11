@@ -22,7 +22,8 @@ const createTagPages = (createPage, posts) => {
 
     posts.forEach(({ node }) => {
         if (node.frontmatter.tags) {
-            node.frontmatter.tags.forEach(tag => {
+            const tagArray = node.frontmatter.tags.split(', ');
+            tagArray.forEach(tag => {
                 if (!postsByTag[tag]) {
                     postsByTag[tag] = []
                 }

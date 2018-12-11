@@ -6,7 +6,7 @@ import ListLink from '../components/nav'
 
 export default ({data}) => (
   <Container style={{ color: `teal` }}>
-    <h1>About {data.site.siteMetadata.title}</h1>
+    {/* <h1>About {data.site.siteMetadata.title}</h1> */}
     <ListLink />
     {/* <Header headerText='About Gatsby' phrase='phrase asdf'/> */}
     <Header />

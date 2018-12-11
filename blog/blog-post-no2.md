@@ -3,7 +3,7 @@ path: "/blog/blog-post-no2"
 title: "Secont post of our blog"
 date: "2018-11-04"
 author: "Zebulon Edward Bubbel"
-tags: ["development", "science"]
+tags: 'development, science'
 ---
 
 You need one additional thing beyond a slug to create pages: a page template component. Like everything in Gatsby, programmatic pages are powered by React components. When creating a page, you need to specify which component to use.
