@@ -1,6 +1,5 @@
 import React from 'react';
 import { StaticQuery, Link, graphql } from 'gatsby'
-// export default props => <h2>{props.headerText} {props.phrase}</h2>
 
 export default ({children}) => (
     <StaticQuery
@@ -14,13 +13,12 @@ export default ({children}) => (
             }
         `}
         render={data => (
-            <div>
+            <header>
                 <Link to={`/`}>
-                    <h3>{data.site.siteMetadata.title}</h3>
+                    <h1 className="visually-hidden">{data.site.siteMetadata.title}</h1>
                 </Link>
                 {children}
-            </div>
+            </header>
         )}
     />
 )
-

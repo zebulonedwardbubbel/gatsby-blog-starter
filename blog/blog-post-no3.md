@@ -1,7 +1,7 @@
 ---
-path: "/blog/da-third-blog-post"
+path: "/blog/blog-post-no3"
 date: "2018-11-13"
-title: "I hope that this post will be posted with success"
+title: "3rd post of the blog"
 description: "Desc for post #3"
 author: "Me"
 tags: 'culture, music, gastronomy'

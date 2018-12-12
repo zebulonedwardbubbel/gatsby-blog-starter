@@ -1,7 +1,8 @@
 module.exports = {
     siteMetadata: {
-        title: `Title string from siteMetadata!!!`,
-        description: `Blog wowness!`
+        title: `Title`,
+        description: `Description`,
+        copy: `Copyright © 2018 Bloggg`
     },
     plugins: [
         {

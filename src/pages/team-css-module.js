@@ -1,13 +1,13 @@
 import React from 'react'
 import Container from '../components/container'
-import LinkList from '../components/nav'
-import styles from './css-modules.module.css'
+import Navigation from '../components/nav'
+import styles from './team.module.css'
 
 const User = props => (
     <div className={styles.user}>
         <img src={props.avatar} className={styles.avatar} alt="" />
         <div className={styles.description}>
-            <h2 className={styles.username}>{props.username}</h2>
+            <h3 className={styles.username}>{props.username}</h3>
             <p className={styles.excerpt}>{props.excerpt}</p>
         </div>
     </div>
@@ -15,9 +15,9 @@ const User = props => (
 
 export default () => (
     <Container>
-        <LinkList />
-        <h1>Team page with css modules</h1>
-        <p>CSS modules, new stuff</p>
+        <Navigation />
+        <h2>Team page</h2>
+        <p style={{marginBottom: `2rem`}}>styled via CSS modules</p>
 
         <User
             username="Jane Doe"
@@ -31,4 +31,3 @@ export default () => (
         />
     </Container>
 )
-

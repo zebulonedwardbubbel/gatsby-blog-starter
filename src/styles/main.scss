@@ -1,5 +1,13 @@
-$color-text: #444;
+// Globals
+@import 'globals/variables';
+@import 'globals/functions';
+@import 'globals/mixins';
+@import 'globals/helpers';
 
-p {
-    color: $color-text;
-}
+// Base
+@import 'base/reset';
+@import 'base/box-sizing';
+@import 'base/sticky-footer';
+@import 'base/page';
+@import 'base/body';
+@import 'base/typography';

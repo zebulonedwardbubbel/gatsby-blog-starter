@@ -1,13 +1,13 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import Container from '../components/container'
-import ListLink from '../components/nav'
+import Navigation from '../components/nav'
 
 export default ({data}) => {
     console.log(data)
     return (
         <Container>
-            <ListLink />
+            <Navigation />
             <div>
                 <h1>My Site's Files</h1>
                 <table>
